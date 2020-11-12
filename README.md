@@ -23,14 +23,14 @@ The complete endpoints can be accessed by appending the endpoints below to the d
 ### `/api/register`
 * Method: `POST`
 * Data:
-```json
+```ts
 {
   username: string,
   password: string
 }
 ````
 * Response:
-```json
+```ts
 {
   message: string,
   token: string,
@@ -42,14 +42,14 @@ The complete endpoints can be accessed by appending the endpoints below to the d
 ### `/api/login`
 * Method: `POST`
 * Data:
-```json
+```ts
 {
   username: string,
   password: string
 }
 ````
 * Response:
-```json
+```ts
 {
   message: string,
   token: string,
@@ -61,18 +61,18 @@ The complete endpoints can be accessed by appending the endpoints below to the d
 ### `/api/senior/connect`
 * Method: `POST`
 * Headers:
-```json
+```ts
   Authorization: `Bearer ${token}`
 ```
 > Note: The `token` above is the token response from the `api/register` or `api/login` routes
 * Data:
-```json
+```ts
 {
   account_number: number
 }
 ````
 * Response:
-```json
+```ts
 {
   message: string,
   account_number: number,
@@ -85,12 +85,12 @@ The complete endpoints can be accessed by appending the endpoints below to the d
 ### `/api/senior/add-profile`
 * Method: `POST`
 * Headers:
-```json
+```ts
   Authorization: `Bearer ${token}`
 ```
 > Note: The `token` above is the token response from the `api/register` or `api/login` routes
 * Data:
-```json
+```ts
 {
   id: number,
   first_name: string,
@@ -107,7 +107,7 @@ The complete endpoints can be accessed by appending the endpoints below to the d
 * `likes` and `dislikes` are comma-separated strings eg. "Fruit,Hiking,Reading"
 * `birth_date` is a string in the format `YYYY-MM-DDThh:mm:ssTZD` eg. `2020-11-11T20:15:24+00:00`
 * Response:
-```json
+```ts
 {
   message: string,
   senior_profile: object,
