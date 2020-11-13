@@ -2,11 +2,11 @@
 Memoriae API Endpoints
 
 ## Domain
-### `https://memoriae.terse.live`
+### `https://mem.terse.live`
 The complete endpoints can be accessed by appending the endpoints below to the domain, examples below:
-* `https://memoriae.terse.live` is the same as `https://memoriae.terse.live/`
-* `https://memoriae.terse.live/echo`
-* `https://memoriae.terse.live/api/register`
+* `https://mem.terse.live` is the same as `https://mem.terse.live/`
+* `https://mem.terse.live/echo`
+* `https://mem.terse.live/api/register`
 
 ### Root
 ### `/`
