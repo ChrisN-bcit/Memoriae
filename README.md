@@ -134,6 +134,7 @@ All routes under the senior scope (`/api/senior/*`) must include the Authorizati
 {
   senior_id: number,
   title: string,
+  date: string,
   content: string
 }
 ```
@@ -157,6 +158,7 @@ All routes under the senior scope (`/api/senior/*`) must include the Authorizati
 {
   id: number,
   title: string,
+  date: string,
   content: string
 }
 ```
@@ -189,6 +191,7 @@ All routes under the senior scope (`/api/senior/*`) must include the Authorizati
   {
     id: number,
     title: string,
+    date: string,
     content: string,
     last_update: string,
     created_at: string,
