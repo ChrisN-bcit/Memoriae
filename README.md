@@ -1,6 +1,7 @@
 # API Docs
 Memoriae API Endpoints
 
+
 ## Domain
 ### `https://mem.terse.live`
 The complete endpoints can be accessed by appending the endpoints listed below to the domain, e.g.:
@@ -8,10 +9,12 @@ The complete endpoints can be accessed by appending the endpoints listed below t
 * `https://mem.terse.live/echo`
 * `https://mem.terse.live/api/register`
 
+
 ### Root
 ### `/`
 * Method `GET`
 * Response `"Hello"`
+
 
 ### Echo
 ### `/echo`
@@ -19,7 +22,9 @@ The complete endpoints can be accessed by appending the endpoints listed below t
 * Data `Any data`
 * Response `"Received: <Any data>!"`
 
+
 ## Register / Login Routes
+
 
 ### Regitser
 ### `/api/register`
@@ -28,9 +33,11 @@ The complete endpoints can be accessed by appending the endpoints listed below t
 ```ts
 {
   username: string,
-  password: string
+  password: string,
+  role: "family_member" | "staff"
 }
 ````
+> role is either `"family_member"` or `"staff"`
 
 * Response
 ```ts
@@ -41,6 +48,7 @@ The complete endpoints can be accessed by appending the endpoints listed below t
 }
 ```
 
+
 ### Login
 ### `/api/login`
 * Method `POST`
@@ -48,9 +56,11 @@ The complete endpoints can be accessed by appending the endpoints listed below t
 ```ts
 {
   username: string,
-  password: string
+  password: string,
+  role: "family_member" | "staff"
 }
 ````
+> role is either `"family_member"` or `"staff"`
 
 * Response
 ```ts
@@ -63,13 +73,28 @@ The complete endpoints can be accessed by appending the endpoints listed below t
 
 
 ## Authenticated Routes
-All routes under the senior scope (`/api/senior/*`) must include the Authorization header in the format:
+All routes under the senior scope (`/api/senior/*`) and the `/api/profile` route must include the Authorization header in the following format:
 ```ts
 {
   Authorization: `Bearer ${token}`
 }
 ```
 > The `token` above is the token response from the `api/register` or `api/login` route
+
+
+### Get the current user profile
+### `/api/profile`
+* Method `POST`
+* Headers `Authorization`
+
+* Response
+```ts
+{
+  message: string,
+  profile: object,
+  status: boolean
+}
+```
 
 
 ### Connect to an existing senior
@@ -82,6 +107,7 @@ All routes under the senior scope (`/api/senior/*`) must include the Authorizati
   account_number: number
 }
 ````
+> `account_number` is a 5 digit number
 
 * Response
 ```ts
@@ -93,6 +119,7 @@ All routes under the senior scope (`/api/senior/*`) must include the Authorizati
 }
 ```
 
+
 ### Add a new senior
 ### `/api/senior/add-profile`
 * Method `POST`
@@ -100,7 +127,7 @@ All routes under the senior scope (`/api/senior/*`) must include the Authorizati
 * Data
 ```ts
 {
-  id: number,
+  account_number: number,
   first_name: string,
   last_name: string,
   birth_date: string,
@@ -110,8 +137,6 @@ All routes under the senior scope (`/api/senior/*`) must include the Authorizati
   dislikes: string
 }
 ````
-> `id` is the Account Number
-
 > `birth_date` is a string in the format `YYYY-MM-DDThh:mm:ssTZD` eg. `2020-11-11T20:15:24+00:00`
 
 > `likes` and `dislikes` are comma-separated strings eg. "Fruit,Hiking,Reading"
@@ -124,6 +149,91 @@ All routes under the senior scope (`/api/senior/*`) must include the Authorizati
   status: boolean
 }
 ```
+
+
+### Update a senior profile
+### `/api/senior/update-profile`
+* Method `POST`
+* Headers `Authorization`
+* Data
+```ts
+{
+  account_number: number,
+  first_name: string,
+  last_name: string,
+  birth_date: string,
+  profile_picture: string,
+  bio: string,
+  likes: string,
+  dislikes: string
+}
+````
+> `birth_date` is a string in the format `YYYY-MM-DDThh:mm:ssTZD` eg. `2020-11-11T20:15:24+00:00`
+
+> `likes` and `dislikes` are comma-separated strings eg. "Fruit,Hiking,Reading"
+
+* Response
+```ts
+{
+  message: string,
+  senior_profile: object,
+  status: boolean
+}
+```
+
+
+### Get a senior profile
+### `/api/senior/profile`
+* Method `POST`
+* Headers `Authorization`
+* Data
+```ts
+{
+  account_number: number
+}
+```
+> `account_number` is a 5 digit number
+
+* Response
+```ts
+{
+  id: number,
+  first_name: string,
+  last_name: string,
+  birth_date: string,
+  profile_picture: string,
+  bio: string,
+  likes: string,
+  dislikes: string,
+  last_update: string,
+  created_at: string
+}
+```
+
+
+### Get connected senior profiles
+### `/api/senior/connected-profiles`
+* Method `GET`
+* Headers `Authorization`
+
+* Response
+```ts
+[
+  {
+    id: number,
+    first_name: string,
+    last_name: string,
+    birth_date: string,
+    profile_picture: string,
+    bio: string,
+    likes: string,
+    dislikes: string,
+    last_update: string,
+    created_at: string
+  }
+]
+```
+
 
 ### Add an entry
 ### `/api/senior/add-entry`
@@ -149,6 +259,7 @@ All routes under the senior scope (`/api/senior/*`) must include the Authorizati
 }
 ```
 
+
 ### Update an entry
 ### `/api/senior/update-entry`
 * Method `POST`
@@ -172,6 +283,7 @@ All routes under the senior scope (`/api/senior/*`) must include the Authorizati
   status: boolean
 }
 ```
+
 
 ### Get all entries
 ### `/api/senior/entries`
