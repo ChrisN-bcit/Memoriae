@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Header from '../../comps/Header';
 import Input from '../../comps/Input';
@@ -10,8 +10,10 @@ import TextStatus from '../../comps/TextStatus';
 import TextGreeting from '../../comps/TextGreeting';
 
 import {Dimensions} from 'react-native';
-
 import { NativeRouter, Link, useHistory } from "react-router-native";
+
+import axios from 'axios';
+// import { createApi, createAuthApi } from '../../js_client_api';
 
 const deviceWidth = Dimensions.get('window').width*0.85
 
@@ -55,7 +57,7 @@ const Staff_home = () => {
             <StoryBox>
             <Link to="/staffprofile">
               <View style={styles.tcont}>
-                <Avatar dim={75} />
+                <Avatar dim={75} imgurl={require("../../Images/john.png")}/>
                 <View style={styles.fcont}>
                 <TextStatus Name="John Moon" Update="Recent story: in his nearlier years John .." />
                 </View>

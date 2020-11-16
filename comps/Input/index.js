@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {useState} from 'react';
 import { TextInput, StyleSheet, Text, View } from 'react-native';
+import styled from 'styled-components';
 
 const height = {height}
 
@@ -21,14 +22,18 @@ container: {
 });
 
 const Input = ({ placeholder }) => {
-
+  const [l_name, setL_name] = useState("");
   const [text, setText] = useState('');
+  // const [account_number, setAccount_number] =
       return (
       <View style={styles.big}>
         <TextInput style={[styles.container, styles.height]}
          placeholder={placeholder}
         onChangeText={text => setText(text)}
-        defaultValue={text}>
+        defaultValue={text}
+        onChange={(e)=>{
+          setL_name(e.target.value)
+        }}>
         </TextInput>
         </View>
     );

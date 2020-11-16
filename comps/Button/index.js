@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Button, navigate } from "react-native";
+import styled from 'styled-components';
 
 const styles = StyleSheet.create({
   text: {
@@ -17,12 +18,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const Button1 = ({ text, onPress }) => {
+const Button1 = ({ text, onPress ,l_name,l_pass}) => {
   return (
       <View style={styles.container}>
         <TouchableOpacity
             style={styles.loginScreenButton}
-            onPress={onPress}
+            onPress={()=>{
+              onPress(l_name, l_pass);}}
              underlayColor='#fff'>
             <Text style={styles.text} >{text}</Text>
         </TouchableOpacity>

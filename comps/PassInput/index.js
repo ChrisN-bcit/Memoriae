@@ -6,7 +6,6 @@ const height = {height}
 
 const styles = StyleSheet.create({
 container: {
-    borderColor: 'gray', 
     borderWidth: 1, padding: 10, 
     borderColor: "#1F1F1F", 
     minWidth: 200, 
@@ -21,7 +20,7 @@ container: {
 });
 
 const PassInput = ({ placeholder }) => {
-
+  const [l_pass, setL_pass] = useState("");
   const [text, setText] = useState('');
       return (
       <View style={styles.big}>
@@ -29,7 +28,10 @@ const PassInput = ({ placeholder }) => {
          placeholder={placeholder}
         onChangeText={text => setText(text)}
         defaultValue={text}
-        secureTextEntry={true}>
+        secureTextEntry={true}
+        onChange={(e)=>{
+          setL_pass(e.target.value)
+        }}>
         </TextInput>
         </View>
     );
@@ -37,6 +39,7 @@ const PassInput = ({ placeholder }) => {
   
   PassInput.defaultProps = {
     placeholder: "Default Input",
+    
   };
 
 export default PassInput;

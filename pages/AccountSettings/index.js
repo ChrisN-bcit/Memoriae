@@ -1,11 +1,11 @@
-import React from "react";
+import React , {useState, useEffect} from "react";
 import globalstyle from "../globalstyle";
 import BackMiddleNav from "../../comps/BackMiddleNav";
-
 import { View, StyleSheet, Text, TouchableHighlight } from "react-native";
-import CenterView from "../../storybook/stories/CenterView";
-
+// import CenterView from "../../storybook/stories/CenterView";
 import {Dimensions} from 'react-native';
+import axios from 'axios';
+// import { createApi, createAuthApi } from '../../js_client_api';
 
 const deviceHeight = Dimensions.get('window').height*0.95;
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState, useEffect} from "react";
 import globalstyle from "../globalstyle";
 import Input from '../../comps/Input';
 import UploadMedia from '../../comps/UploadMedia';
@@ -7,7 +7,6 @@ import StoryBox from '../../comps/StoryBox';
 import TextName from '../../comps/TextName';
 import InputTitle from '../../comps/InputTitle';
 import HrDivider from '../../comps/Divider';
-
 
 import {Dimensions} from 'react-native';
 
@@ -22,7 +21,10 @@ import CameraRoll from "@react-native-community/cameraroll";
 
 
 import { NativeRouter, Link, useHistory } from "react-router-native";
-import {View, StyleSheet, Text} from "react-native"
+import {View, StyleSheet, Text} from "react-native";
+
+import axios from 'axios';
+// import { createApi, createAuthApi } from '../../js_client_api';
 
 const styles = StyleSheet.create({
     upperBox: {

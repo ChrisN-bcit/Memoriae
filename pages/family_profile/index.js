@@ -100,7 +100,7 @@
 
 // export default FamilyProfile;
 
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Header from '../../comps/Header';
 import UploadMedia from '../../comps/UploadMedia';
 import StoryBox from '../../comps/StoryBox';
@@ -114,9 +114,11 @@ import TimePic from '../../comps/TimePic';
 import SortButton from '../../comps/SortButton';
 
 import { NativeRouter, Link, useHistory } from "react-router-native";
-
 import {View, StyleSheet, Text, ScrollView} from "react-native";
 import {Dimensions} from 'react-native';
+
+import axios from 'axios';
+// import { createApi, createAuthApi } from '../../js_client_api';
 
 const deviceWidthP = Dimensions.get('window').width*0.90;
 const deviceWidthF = Dimensions.get('window').width;

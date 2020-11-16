@@ -51,7 +51,7 @@ MyPreferences.defaultProps = {
   p_contentfood: "preference food",
   p_contentanimal: "preference animal",
   p_contentcolour: "preference colour",
-  p_contentanimal: "preference animal",
+  // p_contentanimal: "preference animal",
   p_contentseason: "preference season",
   dim: 30,
 };

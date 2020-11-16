@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor:'#2A3858',
     minHeight:80,
-    width:deviceWidth,
+    width:"100%",
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',

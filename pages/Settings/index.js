@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import globalstyle from "../globalstyle";
 import BackMiddleNav from "../../comps/BackMiddleNav";
 import TextArrow from "../../comps/TextArrow";
 import Button from "../../comps/Button";
 import Profile from "../../comps/Profile"
 import { View, StyleSheet, Text } from "react-native";
-import CenterView from "../../storybook/stories/CenterView";
+// import CenterView from "../../storybook/stories/CenterView";
 
 import { NativeRouter, Route, Link, useHistory } from "react-router-native";
 
@@ -13,6 +13,9 @@ import {Dimensions} from 'react-native';
 import BackNav from "../../comps/BackMiddleNav";
 import Button1 from "../../comps/Button";
 import { Avatar } from "react-native-elements";
+
+import axios from 'axios';
+// import { createApi, createAuthApi } from '../../js_client_api';
 
 const deviceHeightN = Dimensions.get('window').height*0.95;
 const deviceHeightT = Dimensions.get('window').height*0.16;

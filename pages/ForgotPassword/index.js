@@ -1,15 +1,16 @@
-import React from "react";
+import React , {useState, useEffect} from "react";
 import globalstyle from "../globalstyle";
 import Input from '../../comps/Input';
 import SmallLogo from '../../comps/SmallLogo';
 import Button from '../../comps/Button';
 import CloseIcon from '../../comps/CloseIcon';
+import FirstScreen from "../FirstScreen";
 
 import { NativeRouter, Route, Link } from "react-router-native";
-
 import {View, StyleSheet, Text, ScrollView, Button as NBut} from "react-native"
-import CenterView from "../../storybook/stories/CenterView";
-import FirstScreen from "../FirstScreen";
+// import CenterView from "../../storybook/stories/CenterView";
+import axios from 'axios';
+// import { createApi, createAuthApi } from '../../js_client_api';
 
 const styles = StyleSheet.create({
     cont: {
@@ -62,7 +63,7 @@ const ForgotPasswordScreen = () => {
                 <View style={styles.input}>
                     <Input placeholder="Email" />
                 </View>
-                <Text style={styles.text}>Or</Text>
+                <Text style={styles.text}>or</Text>
                 <View style={styles.input}>
                     <Input placeholder="Account Number" />
                 </View>
