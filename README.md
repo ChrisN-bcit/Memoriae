@@ -360,7 +360,7 @@ All routes under the senior scope (`/api/senior/*`) and the `/api/profile` route
 
 
 ## JavaScript API Client
-Copy the code below, excluding the example code, into a JavaScript file
+Copy the code below or [`client.js`](client.js), excluding the example code, into a JavaScript file
 ```js
 import axios from 'axios'
 
