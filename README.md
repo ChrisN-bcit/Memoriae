@@ -43,6 +43,8 @@ The complete endpoints can be accessed by appending the endpoints listed below t
     username: string,
     password: string,
     role: "family_member" | "staff"
+    first_name: string,
+    last_name: string,
   }
   ````
   > role is either `"family_member"` or `"staff"`
