@@ -44,7 +44,7 @@ The complete endpoints can be accessed by appending the endpoints listed below t
     password: string,
     role: "family_member" | "staff",
     first_name: string,
-    last_name: string,
+    last_name: string
   }
   ````
   > role is either `"family_member"` or `"staff"`
@@ -292,6 +292,8 @@ The routes below may be used by both Family Members and Staff unless otherwise s
   ```
   > `senior_id` is the Account Number
 
+  > `date` is a string in the format `YYYY-MM-DDThh:mm:ssTZD` e.g. `2020-11-11T20:15:24+00:00`
+
   * Response
   ```ts
   {
@@ -320,6 +322,8 @@ The routes below may be used by both Family Members and Staff unless otherwise s
   }
   ```
   > `id` is the `entry_id`
+
+  > `date` is a string in the format `YYYY-MM-DDThh:mm:ssTZD` e.g. `2020-11-11T20:15:24+00:00`
 
   * Response
   ```ts
