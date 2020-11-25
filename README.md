@@ -95,6 +95,7 @@ All routes under the senior scope (`/api/senior/*`) and the `/api/profile` route
 ```
 > The `token` above is the token response from the `api/register` or `api/login` route
 
+The routes below may be used by both Family Members and Staff unless otherwise specified.
 
 ### Get the current user profile
 <details>
@@ -145,6 +146,7 @@ All routes under the senior scope (`/api/senior/*`) and the `/api/profile` route
   <summary>Reveal</summary>
 
   ### `POST /api/senior/add-profile`
+  * Role `family_member`
   * Headers `Authorization`
   * Data
   ```ts
@@ -181,6 +183,7 @@ All routes under the senior scope (`/api/senior/*`) and the `/api/profile` route
   <summary>Reveal</summary>
 
   ### `POST /api/senior/update-profile`
+  * Role `family_member`
   * Headers `Authorization`
   * Data
   ```ts
@@ -276,6 +279,7 @@ All routes under the senior scope (`/api/senior/*`) and the `/api/profile` route
   <summary>Reveal</summary>
 
   ### `POST /api/senior/add-entry`
+  * Role `family_member`
   * Headers `Authorization`
   * Data
   ```ts
@@ -304,7 +308,7 @@ All routes under the senior scope (`/api/senior/*`) and the `/api/profile` route
   <summary>Reveal</summary>
 
   ### `POST /api/senior/update-entry`
-  * Method `POST`
+  * Role `family_member`
   * Headers `Authorization`
   * Data
   ```ts
